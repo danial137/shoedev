@@ -1,7 +1,7 @@
 "use client"
 
-import { usePathname, useSearchParams } from "next/navigation";
-import { useRouter } from "next/router";
+import { usePathname, useSearchParams,useRouter } from "next/navigation";
+
 
 const Fillter = () => {
     const searchParams = useSearchParams();
@@ -14,7 +14,7 @@ const Fillter = () => {
                 <option value="newest">Newest</option>
                 <option value="oldest">Oldest</option>
                 <option value="newest">Price : Low to High</option>
-                <option value="newest">Price : High to Low</option>
+                <option value="desc">Price : High to Low</option>
             </select>
         </div>
     )

@@ -2,6 +2,7 @@ import { ProductsType } from "@/types";
 import Categories from "./Categories";
 import ProductCard from "./ProductCard";
 import Link from "next/link";
+import Fillter from "./Fillter";
 
 
 
@@ -122,7 +123,7 @@ const ProductList = ({ category, params }: { category: string, params: "homepage
 
             <Categories />
 
-            {params === "products"}
+            {params === "products" && <Fillter/>}
 
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-12">
                 {products.map(product => (
