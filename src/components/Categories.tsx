@@ -22,7 +22,7 @@ const categories = [
     { name: "Gloves", icon: <Hand className="w-4 h-4" />, slug: "gloves" },
 ];
 
-// این کامپوننت داخل Suspense قرار می‌گیره
+
 function CategoriesContent() {
     const searchParams = useSearchParams();
     const router = useRouter();
