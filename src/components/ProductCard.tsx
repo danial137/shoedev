@@ -1,6 +1,7 @@
 "use client"
 
 import { ProductType } from "@/types"
+import { ShoppingCart } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -29,7 +30,7 @@ const ProductCard = ({ product }: { product: ProductType }) => {
             <select name="size" id="size" className="ring ring-gray-300 rounded-md px-2 py-1">
               {product.sizes.map(size => (
 
-                <option value={size}>
+                <option value={size} key={size}>
                   {size.toUpperCase()}
                 </option>
 
@@ -57,7 +58,9 @@ const ProductCard = ({ product }: { product: ProductType }) => {
 
           <p className="font-meduim">${product.price.toFixed(2)}</p>
 
-          <button className="ring-1 ring-gray-200 shadow-lg rounded-md px-2 py-1 text-sm cursor-pointer hover:text-white hover:bg-black transition-all duration-300 ">Add to Cart </button>
+          <button className="ring-1 ring-gray-200 shadow-lg rounded-md px-2 py-1 text-sm cursor-pointer hover:text-white hover:bg-black transition-all duration-300 flex items-center gap-2">
+            <ShoppingCart/>
+            Add to Cart </button>
 
 
         </div>
