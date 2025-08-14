@@ -33,7 +33,7 @@ function CategoriesContent() {
     const handleChange = (value: string | null) => {
         const params = new URLSearchParams(searchParams);
         params.set("category", value || "all");
-        router.push(`${pathname}?${params.toString()}`);
+        router.push(`${pathname}?${params.toString()}`, {scroll:false });
     };
 
     return (
