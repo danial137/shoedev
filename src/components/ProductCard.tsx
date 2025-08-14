@@ -49,6 +49,19 @@ const ProductCard = ({ product }: { product: ProductType }) => {
           </div>
 
         </div>
+
+        {/*   price */}
+
+
+        <div className="flex items-center justify-between">
+
+          <p className="font-meduim">${product.price.toFixed(2)}</p>
+
+          <button className="ring-1 ring-gray-200 shadow-lg rounded-md px-2 py-1 text-sm cursor-pointer hover:text-white hover:bg-black transition-all duration-300 ">Add to Cart </button>
+
+
+        </div>
+
       </div>
 
 
