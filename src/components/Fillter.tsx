@@ -7,10 +7,19 @@ const Fillter = () => {
     const searchParams = useSearchParams();
     const router = useRouter();
     const pathname = usePathname();
+
+
+    const handleFilter = (value: string) => {
+        const params = new URLSearchParams(searchParams);
+        params.set("category", value || "all");
+        router.push(`${pathname}?${params.toString()}`, {scroll:false });
+
+    }
+
     return (
-        <div className=''>
+        <div className='flex items-center justify-end gap-2 text-sm text-gray-500 my-6'>
             <span>Sort by :</span>
-            <select name="sort" id="sort">
+            <select name="sort" id="sort" className="ring-1 ring-gray-200 shadow-md p-1 rounded-md" onChange={(e)=>handleFilter(e.target.value)}>
                 <option value="newest">Newest</option>
                 <option value="oldest">Oldest</option>
                 <option value="newest">Price : Low to High</option>
