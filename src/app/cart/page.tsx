@@ -1,13 +1,14 @@
-"use client";
+"use client"
 
-import { CartItemsType } from "@/types";
-import { useRouter, useSearchParams } from "next/navigation";
-
+import { CartItemsType } from "@/types"
+import { ArrowRight } from "lucide-react"
+import { useRouter, useSearchParams } from "next/navigation"
 const steps = [
     { id: 1, title: "Shopping Cart", content: "Review your items" },
     { id: 2, title: "Shipping Information", content: "Enter your address" },
     { id: 3, title: "Payment", content: "Enter your payment details" },
-];
+]
+
 
 const cartItems: CartItemsType = [
     {
@@ -40,13 +41,15 @@ const cartItems: CartItemsType = [
         sizes: ["s", "m", "l", "xl"],
         colors: ["gray", "green"],
         images: {
-            gray: "/products/2g.png",
-            green: "/products/2gr.png",
+            gray: "/products/2g.png", green: "/products/2gr.png"
+
         },
+
         quantity: 2,
         selectedSize: "m",
         selectedColor: "green",
     },
+
     {
         id: 3,
         name: "Nike Air Essentials Pullover",
@@ -66,41 +69,46 @@ const cartItems: CartItemsType = [
         selectedSize: "l",
         selectedColor: "black",
     },
-];
+]
 
-export default function CartContent() {
-    const searchParams = useSearchParams();
-    const router = useRouter();
+const CartPage = () => {
 
-    const activeStep = parseInt(searchParams.get("step") || "1");
+    const searchParms = useSearchParams()
+    const router = useRouter()
+
+    const activeStep = parseInt(searchParms.get("step") || "1")
 
     return (
-        <div className="flex flex-col gap-8 items-center justify-center mt-12">
+        <div className='flex flex-col gap-8 items-center justify-center mt-12'>
             {/* title */}
             <h1 className="text-2xl font-medium">Your shopping cart</h1>
             {/* steps */}
             <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
-                {steps.map((step) => (
-                    <div
-                        className={`flex items-center gap-2 border-b-2 pb-4 ${step.id === activeStep ? "border-gray-800" : "border-gray-200"
-                            }`}
-                        key={step.id}
-                    >
-                        <div
-                            className={`w-6 h-6 rounded-full text-white p-4 flex items-center justify-center ${step.id === activeStep ? "bg-gray-800" : "bg-gray-200"
-                                }`}
-                        >
-                            {step.id}
+                {steps.map(step => (
+                    <div className={`flex items-center gap-2 border-b-2 pb-4 ${step.id === activeStep ? "border-gray-800" : "border-gray-200"}`} key={step.id}>
+                        <div className={`w-6 h-6 rounded-full text-white p-4 flex items-center justify-center ${step.id === activeStep ? "bg-gray-800" : "bg-gray-200"}`}> {step.id}
+
                         </div>
-                        <p
-                            className={`text-sm font-medium ${step.id === activeStep ? "text-gray-800" : "text-gray-400"
-                                }`}
-                        >
-                            {step.title}
-                        </p>
+                        <p className={`text-sm font-medium ${step.id === activeStep ? "text-gray-800" : "text-gray-400"}`}>{step.title}</p>
                     </div>
                 ))}
             </div>
+            {/* Steps and datails */}
+            <div className="w-full flex flex-col lg:flex-row gap-16 ">
+                {/* {steps} */}
+                <div className="w-full lg:w-7/12 shadow-lg border-1 border-gray-100 rounded-lg p-8 flex flex-col gap-8"></div >
+                {/* deatails */}
+                <div className="w-full lg:w-5/12 shadow-lg border-1 border-gray-100 rounded-lg flex flex-col p-8 gap-8 ">
+                    <h2 className="font-semibold">Cart Details </h2>
+                    <div className=""></div>
+                    <button className="w-full bg-gray-800 text-white p-2 rounded-lg cursor-pointer flex items-center justify-center gap-2">
+                        Continue
+                        <ArrowRight className="w-3 h-3" />
+                    </button>
+                </div>
+            </div>
         </div>
-    );
+    )
 }
+
+export default CartPage
