@@ -1,9 +1,13 @@
 "use client"
 
+import PaymentForm from "@/components/PaymentForm"
+import ShippingForm from "@/components/ShippingForm"
 import { CartItemsType } from "@/types"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Trash2 } from "lucide-react"
+import Image from "next/image"
 import { useRouter, useSearchParams } from "next/navigation"
-import { Suspense } from "react"
+import { useState, Suspense } from "react"
+
 const steps = [
     { id: 1, title: "Shopping Cart", content: "Review your items" },
     { id: 2, title: "Shipping Information", content: "Enter your address" },
@@ -76,6 +80,7 @@ const cartItems: CartItemsType = [
 const CartPageContent = () => {
     const searchParms = useSearchParams()
     const router = useRouter()
+    const [shippingForm, setShippingForm] = useState(null)
     const activeStep = parseInt(searchParms.get("step") || "1")
     return (
         <div className='flex flex-col gap-8 items-center justify-center mt-12'>
@@ -94,7 +99,33 @@ const CartPageContent = () => {
             {/* Steps and datails */}
             <div className="w-full flex flex-col lg:flex-row gap-16 ">
                 {/* {steps} */}
-                <div className="w-full lg:w-7/12 shadow-lg border-1 border-gray-100 rounded-lg p-8 flex flex-col gap-8"></div >
+                <div className="w-full lg:w-7/12 shadow-lg border-1 border-gray-100 rounded-lg p-8 flex flex-col gap-8 h-max">
+                    {activeStep === 1 ? (cartItems.map(item => (
+                        <div className="flex items-center justify-between pb-4" key={item.id}>
+                            {/* images */}
+                            <div className="flex gap-8">
+                                {/* image */}
+                                <div className="relative w-32 h-32 bg-gray-50 rounded-lg overflow-hidden ">
+                                    <Image src={item.images[item.selectedColor]} alt={item.name} fill className="object-contain" />
+                                </div>
+                                {/* items deatails */}
+                                <div className="flex flex-col justify-between">
+                                    <div className="flex flex-col gap-1">
+                                        <p className="text-sm font-medium">{item.name}</p>
+                                        <p className="text-xs text-gray-500">Quantity:{" "}{item.quantity}</p>
+                                        <p className="text-xs text-gray-500" >Size:{" "}{item.selectedSize}</p>
+                                        <p className="text-xs text-gray-500" >Color:{" "}{item.selectedColor}</p>
+                                    </div>
+                                    <p className="font-medium">${item.price.toFixed(2)}</p>
+                                </div>
+                            </div>
+                            {/* delete button */}
+                            <button className="w-8 h-8 rounded-full bg-red-100 hover:bg-red-200 transition-all duration-300 text-red-400 flex items-center justify-center cursor-pointer ">
+                                <Trash2 className="w-3 h-3" />
+                            </button>
+
+                        </div>))) : activeStep === 2 ? (<ShippingForm />) : activeStep === 3 && shippingForm ? (<PaymentForm />) : (<p className="text-sm text-gray-500">please fill in the shipping form</p>)}
+                </div >
                 {/* deatails */}
                 <div className="w-full lg:w-5/12 shadow-lg border-1 border-gray-100 rounded-lg flex flex-col p-8 gap-8 ">
                     <h2 className="font-semibold">Cart Details </h2>
@@ -120,10 +151,11 @@ const CartPageContent = () => {
                             </p>
                         </div>
                     </div>
-                    <button onClick={() => router.push("/checkout")} className="w-full bg-gray-800 hover:bg-gray-900 transition-all duration-300 text-white p-2 rounded-lg cursor-pointer flex items-center justify-center gap-2">
-                        Continue
-                        <ArrowRight className="w-3 h-3" />
-                    </button>
+                    {activeStep === 1 && (
+                        <button onClick={() => router.push("/cart?step=2", { scroll: false })} className="w-full bg-gray-800 hover:bg-gray-900 transition-all duration-300 text-white p-2 rounded-lg cursor-pointer flex items-center justify-center gap-2">
+                            Continue
+                            <ArrowRight className="w-3 h-3" />
+                        </button>)}
                 </div>
             </div>
         </div>
