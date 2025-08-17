@@ -80,7 +80,13 @@ const cartItems: CartItemsType = [
 const CartPageContent = () => {
     const searchParms = useSearchParams()
     const router = useRouter()
-    const [shippingForm, setShippingForm] = useState(null)
+    const [shippingForm, setShippingForm] = useState<{
+        name: string
+        email: string
+        phone: string
+        address: string
+        city: string
+    } | null>(null)
     const activeStep = parseInt(searchParms.get("step") || "1")
     return (
         <div className='flex flex-col gap-8 items-center justify-center mt-12'>
@@ -124,7 +130,7 @@ const CartPageContent = () => {
                                 <Trash2 className="w-3 h-3" />
                             </button>
 
-                        </div>))) : activeStep === 2 ? (<ShippingForm />) : activeStep === 3 && shippingForm ? (<PaymentForm />) : (<p className="text-sm text-gray-500">please fill in the shipping form</p>)}
+                        </div>))) : activeStep === 2 ? (<ShippingForm setShippingForm={setShippingForm} />) : activeStep === 3 && shippingForm ? (<PaymentForm />) : (<p className="text-sm text-gray-500">please fill in the shipping form</p>)}
                 </div >
                 {/* deatails */}
                 <div className="w-full lg:w-5/12 shadow-lg border-1 border-gray-100 rounded-lg flex flex-col p-8 gap-8 ">
