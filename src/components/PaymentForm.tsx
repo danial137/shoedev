@@ -3,6 +3,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { PaymentFormInputs, paymentFormSchema, ShippingFormInputs, shippingFormSchema } from '@/types';
 import { ArrowRight, ShoppingCartIcon } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 
 const PaymentForm = () => {
@@ -35,8 +36,12 @@ const PaymentForm = () => {
       <input type="text" id='cvv' placeholder='123' {...register('cvv')} className='border-b border-gray-200 py-2 outline-none text-sm' />
       {errors.cvv && <p className='text-red-500 text-sm'>{errors.cvv.message}</p>}
     </div>
-    
-    <div className=''></div>
+
+    <div className='flex items-center gap-2 mt-4 '>
+      <Image src="/klarna.png" alt='klrana' width={50} height={25} className='rounded-md' />
+      <Image src="/cards.png" alt='cards' width={50} height={25} className='rounded-md' />
+      <Image src="/stripe.png" alt='stripe' width={50} height={25} className='rounded-md' />
+    </div>
   
     <button type='submit' className="w-full bg-gray-800 hover:bg-gray-900 transition-all duration-300 text-white p-2 rounded-lg cursor-pointer flex items-center justify-center gap-2">
       Checkout
