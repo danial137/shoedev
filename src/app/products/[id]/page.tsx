@@ -19,7 +19,17 @@ const product: ProductType = {
         green: "/products/1gr.png",
     },
 
+
 }
+
+export const generateMetadata = async ({ params }: { params: Promise<{ id: string }> }) => {
+    const { id } = await params;
+
+    return {
+        title: `Product ${id}`,
+        description: `Details about product ${id}`,
+    };
+};
 
 const ProductPage = async ({ params, searchParams }: { params: Promise<{ id: string }>; searchParams: Promise<{ color: string; size: string }> }) => {
 
