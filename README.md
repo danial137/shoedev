@@ -135,36 +135,6 @@ The UI focuses on:
 * Clear product interactions
 * Mobile-friendly shopping experience
 
----
-
-## 📸 Screenshots
-
-### 🏠 Homepage
-
-> Add a screenshot of the homepage here.
-
-```md
-![ShoeDev Homepage](./public/screenshots/homepage.png)
-```
-
-### 👟 Product Details
-
-> Add a screenshot of the product details page here.
-
-```md
-![Product Details](./public/screenshots/product-details.png)
-```
-
-### 🛒 Shopping Cart
-
-> Add a screenshot of the shopping cart here.
-
-```md
-![Shopping Cart](./public/screenshots/cart.png)
-```
-
----
-
 ## ⚙️ Getting Started
 
 ### Prerequisites
