@@ -1,36 +1,155 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 👟 ShoeDev — E-commerce Store
 
-## Getting Started
+A modern e-commerce web application built with **Next.js**, focused on creating a clean and responsive shopping experience for fashion and footwear products.
 
-First, run the development server:
+🔗 **Live Demo:** https://shoedev-eight.vercel.app
+🔗 **GitHub:** https://github.com/danial137/shoedev
+
+---
+
+## ✨ Overview
+
+ShoeDev is a modern e-commerce project designed to simulate a real-world online shopping platform.
+
+The application provides a responsive storefront where users can browse products, explore product details, select available options such as size and color, and add products to their shopping cart.
+
+The project was built as part of my frontend development journey to practice building scalable and production-style interfaces with **Next.js, TypeScript, and modern React patterns**.
+
+---
+
+## 🚀 Features
+
+* 🛍️ Product listing and product browsing
+* 👟 Product categories
+* 🔎 Product discovery
+* 🎨 Product color selection
+* 📏 Product size selection
+* 🛒 Add to cart functionality
+* 📦 Product details
+* 📱 Responsive design
+* ⚡ Fast page rendering with Next.js
+* 🔐 Authentication interface
+* 🌐 Deployed with Vercel
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology             | Usage                                      |
+| ---------------------- | ------------------------------------------ |
+| **Next.js**            | React framework & application architecture |
+| **React**              | UI development                             |
+| **TypeScript**         | Type-safe development                      |
+| **Tailwind CSS**       | Styling & responsive UI                    |
+| **Next.js App Router** | Application routing                        |
+| **Vercel**             | Deployment                                 |
+
+---
+
+## 📂 Project Structure
+
+```text
+shoedev/
+├── public/
+├── src/
+│   ├── app/
+│   ├── components/
+│   └── ...
+├── .gitignore
+├── next.config.ts
+├── package.json
+├── pnpm-lock.yaml
+├── tsconfig.json
+└── README.md
+```
+
+---
+
+## ⚙️ Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/danial137/shoedev.git
+cd shoedev
+```
+
+### 2. Install dependencies
+
+Using pnpm:
+
+```bash
+pnpm install
+```
+
+Or using npm:
+
+```bash
+npm install
+```
+
+### 3. Start the development server
+
+```bash
+pnpm dev
+```
+
+Or:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 4. Open the application
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Visit:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```text
+http://localhost:3000
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🎯 What I Practiced
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Through this project, I focused on improving my experience with:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* Building reusable React components
+* Working with Next.js App Router
+* TypeScript-based React development
+* Creating responsive e-commerce interfaces
+* Managing product state and cart interactions
+* Designing reusable UI components
+* Structuring a scalable frontend project
+* Deploying a Next.js application with Vercel
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📸 Preview
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Homepage
+
+![ShoeDev Homepage](https://shoedev-eight.vercel.app/)
+
+---
+
+## 🌐 Live Demo
+
+👉 **https://shoedev-eight.vercel.app**
+
+---
+
+## 👨‍💻 Author
+
+**Danial Fakhrabadi**
+
+Frontend / Full-Stack Developer
+
+* GitHub: https://github.com/danial137
+* LinkedIn: Add your LinkedIn profile here
+
+---
+
+## 📄 License
+
+This project was created for educational and portfolio purposes.
